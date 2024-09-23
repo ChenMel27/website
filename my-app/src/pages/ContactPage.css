@@ -1,0 +1,33 @@
+.contact-container {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #111;
+  }
+  
+  .contact-container p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .contact-details p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-details a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .contact-details a:hover {
+    text-decoration: underline;
+  }
+  
