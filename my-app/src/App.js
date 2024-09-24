@@ -2,23 +2,12 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import './App.css';
 import SampleVideo from './waterfall.mp4';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Hook to get current location
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const isHomePage = location.pathname === '/'; // Check if current route is home
-
   return (
     <div className="App">
       {/* Only show the header and video on the home page */}
-      {isHomePage && (
+      {(
         <header className="App-header">
           <div>
             <video className="Sample-video" autoPlay muted loop>
@@ -27,29 +16,15 @@ function App() {
             </video>
             <h1 className="App-title">Be bold. <br />Be creative.</h1>
             <nav className="Nav">
-              <button className={`hamburger ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
-              </button>
               <span className="brand-title">MYC</span>
             </nav>
           </div>
         </header>
       )}
 
-      {/* Overlay and Menu */}
-      <div className={`overlay ${isOpen ? 'active' : ''}`}>
-        <div className={`menu ${isOpen ? 'active' : ''}`}>
-          <ul>
-            <li><Link to="/portfolio">Portfolio</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
-        </div>
-      </div>
 
       {/* Only show the About, Projects, Photography, and Skills sections on the home page */}
-      {isHomePage && (
+      {(
         <>
           <section className="About">
             <h2>About Me</h2>
@@ -93,12 +68,6 @@ function App() {
           </section>
         </>
       )}
-
-      {/* Routes */}
-      <Routes>
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
     </div>
   );
 }
